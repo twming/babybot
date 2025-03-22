@@ -64,6 +64,9 @@ sudo chmod 755 ros2-humble-base-main.sh
 ## 3. Colcon build Bumperbot
 Colcon build the bumperbot package
 ```
+source ~/.bashrc
+```
+```
 cd ~/babybot
 colcon build
 ```
