@@ -18,6 +18,15 @@ find_package(rclcpp_lifecycle REQUIRED)
 
 pkg_check_modules(SERIAL libserial)
 
+
+# for python imu
+ament_python_install_package(${PROJECT_NAME}) 
+
+install(PROGRAMS
+  ${PROJECT_NAME}/mpu6050_driver.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 add_library(${PROJECT_NAME} SHARED
   src/bumperbot_interface.cpp  
 )
@@ -50,6 +59,7 @@ install(
   DESTINATION share/${PROJECT_NAME}
 )
 
+
 ament_export_include_directories(
   include
 )
@@ -62,5 +72,6 @@ ament_export_dependencies(
   rclcpp
   rclcpp_lifecycle
 )
+
 
 ament_package()
