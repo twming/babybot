@@ -43,3 +43,11 @@ sudo chmod 755 ros2-humble-base-main.sh
 ```
 colcon build
 ```
+## 4. Setup Bumperbot environment
+```
+echo "source ~/install/setup.bash" >> ~/.bashrc
+```
+## 5. Bringup Bumperbot
+```
+ros2 launch bumperbot_bringup real_robot.launch.py
+```
