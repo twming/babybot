@@ -22,7 +22,7 @@ DEVICE_ADDRESS = 0x68
 
 class MPU6050_Driver(Node):
     def __init__(self):
-        super().__init("mpu6050_driver")
+        super().__init__("mpu6050_driver")
         self.pub_ = self.create_publisher(Imu, "/imu/out",10)
         
         self.imu_msg_ = Imu()
