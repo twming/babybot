@@ -67,13 +67,13 @@ Colcon build the bumperbot package
 source ~/.bashrc
 ```
 ```
-cd ~/babybot
+cd ~
 colcon build
 ```
 ## 4. Setup Bumperbot environment
 Setup the bumperbot package environment in the bashrc file and source it
 ```
-echo "source ~/babybot/install/setup.bash" >> ~/.bashrc
+echo "source ~/install/setup.bash" >> ~/.bashrc
 ```
 ```
 source ~/.bashrc
