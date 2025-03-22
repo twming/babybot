@@ -1,6 +1,6 @@
 # Bumperbot Setup
 Below are the steps to setup bumperbot
-
+## 1. Preparation 
 ### Enable SSH
 ```
 sudo nano /etc/ssh/sshd_config
@@ -27,4 +27,19 @@ APT::Periodic::Unattended-Upgrade "0";
 ```
 sudo systemctl mask systemd-networkd-wait-online.service
 sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+```
+## 2. Install ROS and download Bumperbot package
+```
+git clone http://github.com/twming/babybot
+```
+```
+cd babybot
+sudo chmod 755 ros2-humble-base-main.sh
+```
+```
+./ros2-humble-base-main.sh
+```
+## 3. Colcon build Bumperbot
+```
+colcon build
 ```
