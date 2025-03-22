@@ -1,13 +1,28 @@
-# Bumperbot Setup
-Below are the steps to setup bumperbot
+# Bumperbot Setup and Bringup
+Below are the steps to setup bumperbot, then bringup the robot.
 ## 1. Preparation 
+### Setup Wifi
+Edit the 50-cloud-init.yaml, and enter below lines
+```
+network:
+    ethernets:
+        eth0:
+            dhcp4: true
+            optional: true
+    version: 2
+    wifis:
+        renderer: networkd
+        wlan0:
+            access-points:
+                ros_public:
+                    password: 9fea575b6a0d4668c666a4b111d7784ca062496a4570715e0d5120714b9b3f90
+                SSID:
+                    password: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            dhcp4: true
+            optional: true
+
+```
 ### Enable SSH
-```
-sudo nano /etc/ssh/sshd_config
-```
-```
-IPQoS cs0 cs0
-```
 ```
 sudo nano /etc/ssh/sshd_config.d/50-cloud-init.conf
 ```
