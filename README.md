@@ -9,7 +9,7 @@ sudo nano /etc/ssh/sshd_config
 IPQoS cs0 cs0
 ```
 ```
-sudo nano /etc/ssh/sshd_config.d/60-cloudimg-settings.conf
+sudo nano /etc/ssh/sshd_config.d/50-cloud-init.conf
 ```
 ```
 PasswordAuthentication yes
