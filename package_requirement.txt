@@ -17,7 +17,7 @@ ros-humble-plotjuggler*
 ros-humble-gazebo-ros2-control
 ros-humble-joint-state-broadcaster
 ros-humble-velocity-controllers
-ros-humble-diff-driver-controller
+ros-humble-diff-drive-controller
 
 pip install
 -----------
