@@ -32,30 +32,39 @@ def generate_launch_description():
         executable="mpu6050_driver.py"
     )
 
-    # rviz = Node(
-    #     package="rviz2",
-    #     executable="rviz2",
-    #     name="rviz2",
-    #     output="log",
-    #     arguments=["-d", 
-    #         os.path.join(
-    #             get_package_share_directory("bumperbot_description"),"rviz","robot_control.rviz"
-    #         )
-    #     ]
-    # )
+    rp_laser_driver = Node(
+        package="rplidar_ros",
+        executable="rplidar_node",
+        name="rplidar_node",
+        parameters=[os.path.join(
+            get_package_share_directory("bumperbot_bringup"),
+            "config",
+            "rplidar_a1.yaml"
+        )],
+        output="screen"
+    )
 
-    joystick = IncludeLaunchDescription(
+    yd_laser_driver = IncludeLaunchDescription(
         os.path.join(
-            get_package_share_directory("bumperbot_controller"),
+            get_package_share_directory("ydlidar_ros2_driver"),
             "launch",
-            "joystick_teleop.launch.py"
+            "ydlidar_launch.py"
         )
     )
+
+    # joystick = IncludeLaunchDescription(
+    #     os.path.join(
+    #         get_package_share_directory("bumperbot_controller"),
+    #         "launch",
+    #         "joystick_teleop.launch.py"
+    #     )
+    # )
 
     return LaunchDescription([
         hardware_interface,
         controller,
         imu_driver_node,
-        # rviz,
-        joystick
+        rp_laser_driver,
+        # yd_laser_driver,
+        # joystick
     ])
