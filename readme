@@ -1,0 +1,11 @@
+Terminal 1:
+ros2 launch babybot_description gazebo_simple_controller.launch.py 
+
+Terminal 2:
+ros2 launch babybot_controller simple_controller.launch.py
+
+Terminal 3:
+ros2 topic pub /simple_velocity_controller/commands std_msgs/msg/Float64MultiArray "layout:
+  dim: []
+  data_offset: 0
+data: [0,1]" 
