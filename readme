@@ -1,0 +1,38 @@
+Terminal 1:
+ros2 launch babybot_description gazebo_simple_controller.launch.py 
+
+Terminal 2:
+ros2 launch babybot_controller simple_controller.launch.py
+
+Terminal 3:
+ros2 topic pub /simple_velocity_controller/commands std_msgs/msg/Float64MultiArray "layout:
+  dim: []
+  data_offset: 0
+data: [0,1]" 
+
+
+
+
+wm@twm-Aspire-A315-59:~/dev_ws$ ros2 control list_controllers
+joint_state_broadcaster    joint_state_broadcaster/JointStateBroadcaster      active
+simple_velocity_controller velocity_controllers/JointGroupVelocityController  active
+
+twm@twm-Aspire-A315-59:~/dev_ws$ ros2 control list_hardware_components 
+Hardware Component 1
+	name: GazeboSystem
+	type: 
+	plugin name: 
+	state: id=3 label=active
+	command interfaces
+		wheel_left_joint/velocity [available] [claimed]
+		wheel_right_joint/velocity [available] [claimed]
+
+twm@twm-Aspire-A315-59:~/dev_ws$ ros2 control list_hardware_interfaces 
+command interfaces
+	wheel_left_joint/velocity [available] [claimed]
+	wheel_right_joint/velocity [available] [claimed]
+state interfaces
+	wheel_left_joint/position
+	wheel_left_joint/velocity
+	wheel_right_joint/position
+	wheel_right_joint/velocity
