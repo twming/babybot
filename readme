@@ -1,0 +1,24 @@
+Terminal 1:
+ros2 launch babybot_firmware real_robot.launch.py 
+
+Terminal 2:
+ros2 topic pub /diffdrive_controller/cmd_vel geometry_msgs/msg/TwistStamped "header:
+  stamp:
+    sec: 0
+    nanosec: 0
+  frame_id: ''
+twist:
+  linear:
+    x: 0.4
+    y: 0.0
+    z: 0.0
+  angular:
+    x: 0.0
+    y: 0.0
+    z: 0.0" --rate 5
+
+
+Terminal 3:
+ros2 launch babybot_controller joystick_teleop_diffdrive.launch.py
+
+
